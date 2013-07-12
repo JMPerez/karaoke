@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Karaoke using Web Audio API and HTML5 File Drag &amp; Drop</title>
+    <link rel="stylesheet" type="text/css" media="all" href="css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Karaoke using Web Audio API</h1>
+    </header>
+    <div class="main">
+      <p>Do you like Karaoke? Find a music file and drag it here. If you are lucky, you will listen the song without vocals.</p>
+
+      <div id="filedrag">Drop your MP3 file here (also .ogg or .wav)</div>
+      <div id="fileselect-container">
+        <label for="fileselect">Or select a file:</label>
+        <input type="file" id="fileselect" name="fileselect[]"/>
+      </div>
+      
+      <div id="current-song"></div>
+      <div id="options">
+        Options:
+        <button id="disable-filter">Disable karaoke</button>
+      </div>
+      <h2>How it works</h2>
+      <p>By using the Web Audio API, the file is processed and voice is removed. Check out the source code for more information. No Flash was used to develop this.</p>
+    </div>
+    <script src="scripts/jDataView.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
