@@ -25,6 +25,15 @@ Browser support
 
 At the moment it only seems to work in Chrome for Desktop. I have tried on Chrome for Android and Firefox for Desktop but they don't support the needed functions.
 
+Future improvements
+-------------------
+
+* Improve karaoke filter
+* Advanced options to tweak the filter
+* Play / pause controls
+* Research lyrics integration
+* Spotify Web Player integration?
+
 Authors
 --------------
 I, [@jmperezperez](https://twitter.com/jmperezperez), just put everything in place. Without [@possan](https://twitter.com/possan)'s help on how to use the Web Audio API this would have been impossible. Big kudos to him!
