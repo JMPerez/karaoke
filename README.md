@@ -18,12 +18,14 @@ This karaoke uses a number of open source projects to work properly:
 Installation
 --------------
 
-Download it and open the `index.html`file.
+Download it and open the `index.html` file.
 
 Browser support
 --------------
 
-At the moment it only seems to work in Chrome for Desktop. I have tried on Chrome for Android and Firefox for Desktop but they don't support the needed functions.
+* Chrome for Desktop
+* Chrome Beta for Android. Open `chrome://flags/` and enable "Enable WebAudio Android -
+Enabling this option allows web sites to access the WebAudio API."
 
 Future improvements
 -------------------
