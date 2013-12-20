@@ -38,7 +38,7 @@
     });
 
     demoAudio.addEventListener('click', function() {
-      playSound('../audio/mmo-happy.mp3')
+      playSound('audio/mmo-happy.mp3')
     }, false);
   }
 
