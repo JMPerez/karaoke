@@ -142,13 +142,13 @@
     filterLowPass = context.createBiquadFilter();
     source.connect(filterLowPass);
 
-    filterLowPass.type = 0;
+    filterLowPass.type = 'lowpass';
     filterLowPass.frequency.value = 120;
 
     // create high-pass filter
     filterHighPass = context.createBiquadFilter();
     source.connect(filterHighPass);
-    filterHighPass.type = 1;
+    filterHighPass.type = 'highpass';
     filterHighPass.frequency.value = 120;
 
     // create the gain node
@@ -180,7 +180,7 @@
   }
 
   function disconnect() {
-    source.noteOff(0);
+    source.stop(0);
     source.disconnect(0);
     processor.disconnect(0);
     mix.disconnect(0);
