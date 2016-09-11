@@ -1,0 +1,33 @@
+{
+  "name": "karaoke",
+  "version": "0.0.1",
+  "description": "Karaoke built with Web Audio API",
+  "main": "src/scripts/main.js",
+  "scripts": {
+    "clean": "rm -rf build",
+    "dev": "rollup -c --watch",
+    "prebuild": "npm run clean -s",
+    "build": "npm run build:scripts -s && npm run build:styles -s && npm run build:markup -s && npm run build:static -s",
+    "build:markup": "mkdir -p build && cp src/index.html build",
+    "build:scripts": "rollup -c",
+    "build:styles": "mkdir -p build/css && cssnano < src/css/styles.css > build/css/styles.css",
+    "build:static": "mkdir -p build/audio && cp -r src/audio/* build/audio && mkdir -p build/img && cp -r src/img/* build/img"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JMPerez/karaoke.git"
+  },
+  "author": "Jose M. Perez <jmperez1985@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JMPerez/karaoke/issues"
+  },
+  "homepage": "https://jmperezperez.com/karaoke/",
+  "devDependencies": {
+    "cssnano-cli": "^1.0.4",
+    "rollup": "^0.35.7",
+    "rollup-plugin-eslint": "^3.0.0",
+    "rollup-plugin-uglify": "^1.0.1",
+    "rollup-watch": "^2.5.0"
+  }
+}
