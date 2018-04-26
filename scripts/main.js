@@ -53,6 +53,7 @@
     request.onload = function() {
       var data = request.response;
       initAudio(data);
+      showData(data);
     };
 
     request.send();
@@ -77,10 +78,20 @@
     reader.onload = function(fileEvent) {
       var data = fileEvent.target.result;
       initAudio(data);
+      showData(this.result);
+    };
 
-      var currentSong = document.getElementById('current-song');
-      var dv = new jDataView(this.result);
+    // http://ericbidelman.tumblr.com/post/8343485440/reading-mp3-id3-tags-in-javascript
+    // https://github.com/jDataView/jDataView/blob/master/src/jDataView.js
 
+    reader.readAsArrayBuffer(droppedFiles[0]);
+  }
+
+  function showData(file) {
+    var currentSong = document.getElementById('current-song');
+    var dv = new jDataView(file);
+
+    try {
       // "TAG" starts at byte -128 from EOF.
       // See http://en.wikipedia.org/wiki/ID3
       if (dv.getString(3, dv.byteLength - 128) == 'TAG') {
@@ -93,15 +104,11 @@
         // no ID3v1 data found.
         currentSong.innerHTML = 'Playing';
       }
+    } catch (e) {
+      currentSong.innerHTML = 'Playing';
+    }
 
-      options.style.display = 'block';
-    };
-
-    // http://ericbidelman.tumblr.com/post/8343485440/reading-mp3-id3-tags-in-javascript
-    // https://github.com/jDataView/jDataView/blob/master/src/jDataView.js
-
-    reader.readAsArrayBuffer(droppedFiles[0]);
-
+    options.style.display = 'block';
   }
 
   // call initialization file
